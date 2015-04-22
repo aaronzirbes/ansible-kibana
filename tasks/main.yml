@@ -1,0 +1,3 @@
+---
+- name: Pull Docker Continer
+  command: docker pull {{kibana_container}}:{{kibana_version}}
