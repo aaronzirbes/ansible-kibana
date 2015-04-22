@@ -8,3 +8,6 @@
 
 - name: Add Upstart file for Kibana
   template: src=upstart.js dest=/etc/init/kibana.conf mode=0644
+
+- name: Enable service
+  service: name=kibana enabled=true

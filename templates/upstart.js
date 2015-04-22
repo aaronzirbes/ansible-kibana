@@ -11,7 +11,7 @@ setgid root
 
 script
 
-  . /usr/bin/local/read_userdata.sh
+  . /usr/local/bin/read_userdata.sh
 
   /usr/bin/docker run -d \
     --name kibana \
