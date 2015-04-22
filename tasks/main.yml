@@ -2,6 +2,6 @@
 
 - name: Assert Docker is running
   service: name=docker state=started
-  
+
 - name: Pull Docker Continer
-  command: docker pull {{kibana_container}}:{{kibana_version}}
+  command: sudo docker pull {{kibana_container}}:{{kibana_version}}

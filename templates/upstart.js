@@ -6,6 +6,9 @@ stop on runlevel [!2345]
 
 respawn
 
+setuid root
+setgid root
+
 script
 
   . /usr/bin/local/read_userdata.sh
