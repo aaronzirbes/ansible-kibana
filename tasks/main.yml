@@ -5,3 +5,6 @@
 
 - name: Pull Docker Continer
   command: sudo docker pull {{kibana_container}}:{{kibana_version}}
+
+- name: Add Upstart file for Kibana
+  template: src=upstart.js dest=/etc/init/kibana.conf mode=0644
