@@ -13,16 +13,19 @@ script
 
   . /usr/local/bin/read_userdata.sh
 
-  /usr/bin/docker run -d \
-    --name kibana \
+  if docker ps -a --filter name=${UPSTART_JOB} | grep -e ".*"; then
+    docker rm ${UPSTART_JOB}
+  fi
+
+  /usr/bin/docker run \
+    --name ${UPSTART_JOB} \
     -h `cat /etc/hostname` \
     --restart="always" \
-    --rm \
     -e ELASTICSEARCH=http://${user_data_esDomain}:9200 \
     {{kibana_docker_opts}} \
     {{kibana_container}}:{{kibana_version}}
 end script
 
 pre-stop script
-  /usr/bin/docker stop kibana
+  /usr/bin/docker stop ${UPSTART_JOB}
 end script
